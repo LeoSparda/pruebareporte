@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = 'http://localhost:3000/api';
+    // Usa una URL base dependiendo del entorno
+    const apiUrl = window.location.hostname === 'localhost' ? 'http://localhost:3000/api' : 'https://pruebareporte-leospardas-projects.vercel.app/api';
     
     // Cargar el menú de tiendas y subtiendas
     const loadMenu = async () => {
@@ -248,7 +249,7 @@ const loadInventory = async () => {
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/api/inventario/${subtiendaId}`);
+        const response = await fetch(`${apiUrl}/inventario/${subtiendaId}`);
         if (!response.ok) {
             throw new Error('Error en la respuesta de la API: ' + response.statusText);
         }
@@ -358,5 +359,3 @@ generateReportBtn.addEventListener('click', async () => {
         errorMessage.style.display = 'block';
     }
 });
-
-
