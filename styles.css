@@ -1,0 +1,267 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Color de fondo de la página */
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Para que ocupe al menos toda la altura de la ventana */
+}
+
+/* Encabezado */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinear los elementos a los extremos */
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+/* Botones */
+.button-group {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.button-group button {
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-store-btn {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+}
+
+#add-store-btn:hover {
+    background-color: #45a049; /* Color de fondo al pasar el ratón */
+}
+
+#submit-store-btn {
+    background-color: #007bff; /* Color de fondo azul */
+    color: white;
+}
+
+#submit-store-btn:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+#submit-remove-store-btn {
+    background-color: #dc3545; /* Color de fondo rojo */
+    color: white;
+}
+
+#submit-remove-store-btn:hover {
+    background-color: #c82333; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos del menú */
+.menu {
+    margin-top: 20px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff; /* Texto blanco para el menú principal */
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #007bff; /* Azul para el menú principal */
+    transition: background-color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background-color: #0056b3; /* Azul oscuro al pasar el ratón */
+}
+
+/* Estilos para los submenús */
+.sub-menu {
+    display: none; /* Ocultar submenú por defecto */
+    background-color: #d4edda; /* Verde claro para el submenú */
+    padding-left: 20px; /* Espacio a la izquierda del submenú */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.sub-menu li {
+    margin-bottom: 5px; /* Espacio entre los elementos del submenú */
+}
+
+.sub-menu li a {
+    background-color: #d4edda; /* Verde claro para el submenú */
+    color: #155724; /* Texto verde oscuro para contraste */
+    padding: 8px;
+}
+
+.sub-menu li a:hover {
+    background-color: #c3e6cb; /* Verde un poco más claro al pasar el ratón */
+}
+
+/* Formularios */
+#add-store-form, #remove-store-form {
+    margin-top: 20px;
+}
+
+#add-store-form.hidden, #remove-store-form.hidden {
+    display: none;
+}
+
+#add-store-form label, #remove-store-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#store-select, #remove-store-select, #store-name {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#warning-message, #remove-warning-message {
+    color: red;
+    display: none;
+}
+
+/* Estilos para el contenedor del formulario de inicio de sesión */
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group a {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.form-group a:hover {
+    background-color: #0056b3;
+}
+
+
+.container {
+    margin: 20px;
+}
+#inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+#inventory-table th, #inventory-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#inventory-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+#error-message {
+    color: red;
+}
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.back-button:hover {
+    background-color: #0056b3;
+}
+.hidden {
+    display: none;
+}
+.report-form {
+    margin-top: 30px;
+}
+.report-form label {
+    display: block;
+    margin-top: 10px;
+}
+.report-form input, .report-form select, .report-form textarea {
+    width: 50%;
+    padding: 8px;
+    margin-top: 5px;
+}
+.report-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.report-form button:hover {
+    background-color: #218838;
+}

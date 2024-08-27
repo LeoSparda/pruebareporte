@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario y Reportes</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
+    <style>
+        .container {
+            margin: 20px;
+        }
+        #inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        #inventory-table th, #inventory-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        #inventory-table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        #error-message {
+            color: red;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        .report-form {
+            margin-top: 30px;
+        }
+        .report-form label {
+            display: block;
+            margin-top: 10px;
+        }
+        .report-form input, .report-form select, .report-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .report-form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .report-form button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Inventario</h1>
+        <table id="inventory-table">
+            <thead>
+                <tr>
+                    <th>Nombre del Producto</th>
+                    <th>Marca</th>
+                    <th>Procesador</th>
+                    <th>Otros Datos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las filas de inventario se llenarán aquí -->
+            </tbody>
+        </table>
+        <p id="error-message"></p>
+        <button class="back-button" onclick="goBack()">Volver</button>
+        
+        <!-- Formulario para generar reportes -->
+        <div class="report-form hidden" id="report-form">
+            <h2>Generar Reporte</h2>
+            <label for="report-date">Fecha:</label>
+            <input type="date" id="report-date">
+            <label for="report-description">Descripción:</label>
+            <textarea id="report-description" rows="4" placeholder="Descripción del reporte"></textarea>
+            <label for="report-inventory">Seleccionar Inventario:</label>
+            <select id="report-inventory">
+                <!-- Opciones se llenarán con JavaScript -->
+            </select>
+            <button id="generate-report-btn">Generar Reporte</button>
+            <p id="report-error-message"></p>
+        </div>
+
+        <button id="show-report-form-btn">Generar Reporte</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

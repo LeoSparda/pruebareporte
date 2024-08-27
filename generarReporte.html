@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Subtiendas</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gestión de Subtiendas</h1>
+            <div class="button-group">
+                <button id="add-store-btn">Agregar Subtienda</button>
+                <button id="remove-store-btn">Eliminar Subtienda</button>
+            </div>
+        </div>
+
+        <!-- Menú de tiendas y subtiendas -->
+        <div id="menu-container" class="menu">
+            <ul id="store-menu"></ul>
+        </div>
+
+        <!-- Formulario para agregar subtienda -->
+        <div id="add-store-form" class="hidden">
+            <label for="store-name">Nombre de la subtienda:</label>
+            <input type="text" id="store-name" placeholder="Nombre de la subtienda">
+            <label for="store-select">Seleccionar tienda madre:</label>
+            <select id="store-select">
+                <!-- Las opciones se llenarán con JavaScript -->
+            </select>
+            <button id="submit-store-btn">Agregar</button>
+            <p id="warning-message"></p>
+        </div>
+
+        <!-- Formulario para eliminar subtienda -->
+        <div id="remove-store-form" class="hidden">
+            <label for="remove-store-select">Seleccionar subtienda para eliminar:</label>
+            <select id="remove-store-select">
+                <!-- Las opciones se llenarán con JavaScript -->
+            </select>
+            <button id="submit-remove-store-btn">Eliminar</button>
+            <p id="remove-warning-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Enlace al archivo JavaScript -->
+</body>
+</html>

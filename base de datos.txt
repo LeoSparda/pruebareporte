@@ -1,0 +1,61 @@
+CREATE DATABASE Tiendasgasfar;
+USE Tiendasgasfar;
+
+CREATE TABLE tiendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE subtiendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tienda_id INT,
+    nombre VARCHAR(255) NOT NULL,
+    FOREIGN KEY (tienda_id) REFERENCES tiendas(id) ON DELETE CASCADE
+);
+
+CREATE TABLE inventario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    subtienda_id INT,
+    nombre_producto VARCHAR(255) NOT NULL,
+    marca VARCHAR(255),
+    procesador VARCHAR(255),
+    otros_datos TEXT,
+    FOREIGN KEY (subtienda_id) REFERENCES subtiendas(id) ON DELETE CASCADE
+);
+
+CREATE TABLE reportes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    inventario_id INT,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    descripcion TEXT,
+    FOREIGN KEY (inventario_id) REFERENCES inventario(id) ON DELETE CASCADE
+);
+
+
+INSERT INTO tiendas (nombre) VALUES ('CROCS'), ('LACOSTE'), ('MAC'), ('NEW ERA'), ('PSYCO BUNNY');
+
+
+INSERT INTO subtiendas (tienda_id, nombre) VALUES
+((SELECT id FROM tiendas WHERE nombre = 'CROCS'), 'CROCS T1'),
+((SELECT id FROM tiendas WHERE nombre = 'CROCS'), 'CROCS T2'),
+((SELECT id FROM tiendas WHERE nombre = 'CROCS'), 'CROCS México'),
+((SELECT id FROM tiendas WHERE nombre = 'LACOSTE'), 'LACOSTE T1'),
+((SELECT id FROM tiendas WHERE nombre = 'LACOSTE'), 'LACOSTE T2'),
+((SELECT id FROM tiendas WHERE nombre = 'MAC'), 'MAC T1'),
+((SELECT id FROM tiendas WHERE nombre = 'MAC'), 'MAC T2'),
+((SELECT id FROM tiendas WHERE nombre = 'NEW ERA'), 'NEW ERA T1'),
+((SELECT id FROM tiendas WHERE nombre = 'NEW ERA'), 'NEW ERA T2'),
+((SELECT id FROM tiendas WHERE nombre = 'PSYCO BUNNY'), 'PSYCO BUNNY T1'),
+((SELECT id FROM tiendas WHERE nombre = 'PSYCO BUNNY'), 'PSYCO BUNNY T2');
+
+
+INSERT INTO inventario (subtienda_id, nombre_producto, marca, procesador, otros_datos) VALUES
+((SELECT id FROM subtiendas WHERE nombre = 'CROCS T1'), 'Laptop XYZ', 'Marca A', 'Intel i5', 'Detalle del producto'),
+((SELECT id FROM subtiendas WHERE nombre = 'CROCS T1'), 'Impresora ABC', 'Marca B', 'N/A', 'Detalle del producto'),
+((SELECT id FROM subtiendas WHERE nombre = 'MAC T1'), 'MacBook Pro', 'Apple', 'M1', 'Detalle del producto');
+
+
+INSERT INTO reportes (inventario_id, descripcion) VALUES
+((SELECT id FROM inventario WHERE nombre_producto = 'Laptop XYZ'), 'Se reportó un fallo en el teclado.'),
+((SELECT id FROM inventario WHERE nombre_producto = 'Impresora ABC'), 'La impresora no responde.'),
+((SELECT id FROM inventario WHERE nombre_producto = 'MacBook Pro'), 'Pantalla parpadea intermitentemente.');
